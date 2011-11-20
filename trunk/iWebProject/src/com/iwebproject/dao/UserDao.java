@@ -1,5 +1,8 @@
 package com.iwebproject.dao;
 
-public interface UserDao {
+import com.iwebproject.bean.User;
+
+
+public interface UserDao extends GenericDao<User, Long>{
 
 }
