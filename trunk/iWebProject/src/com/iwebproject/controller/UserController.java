@@ -20,14 +20,8 @@ public class UserController {
 	private UserService userService;
 	
 	@RequestMapping("/helloWorld")
-	public ModelAndView helloWorld() {
+	public ModelAndView helloWorld(User user) {
 		logger.info("helloWorld() method begin...");
-		
-		User user = new User();
-		user.setUserName("zhangwenlong");
-		user.setPassword("zhangwenlong");
-		user.setEmail("zhangwenlong73@gmail.com");
-		user.setNickName("灰色轨迹");
 		
 		this.userService.create(user);
 		
