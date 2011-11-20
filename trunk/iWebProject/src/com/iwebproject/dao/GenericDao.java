@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public interface GenericDao<T,PK extends Serializable> {
 	/** Persist the newInstance object into database */
-    PK create(T newInstance);
+    void create(T newInstance);
 
     /** Retrieve an object that was previously persisted to the database using
      *   the indicated id as primary key
@@ -16,4 +16,5 @@ public interface GenericDao<T,PK extends Serializable> {
 
     /** Remove an object from persistent storage in the database */
     void delete(T persistentObject);
+    
 }
