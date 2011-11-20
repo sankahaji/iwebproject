@@ -10,8 +10,7 @@
           http://www.springframework.org/schema/context   
           http://www.springframework.org/schema/context/spring-context-3.0.xsd   
           http://www.springframework.org/schema/aop   
-          http://www.springframework.org/schema/aop/spring-aop-3.0.xsd"
-	default-autowire="byName">
+          http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
 	<bean id="propertyConfigurer"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -25,8 +24,9 @@
 
 	<context:annotation-config />
 
-	<context:component-scan base-package="com.fsj.spring">
-		<context:exclude-filter type="regex" expression="com.iwebproject.controller.*" />
+	<context:component-scan base-package="com.iwebproject">
+		<context:exclude-filter type="regex"
+			expression="com.iwebproject.controller.*" />
 	</context:component-scan>
 
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
