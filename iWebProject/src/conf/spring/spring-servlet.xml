@@ -21,7 +21,7 @@
     <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">    
         <property name="messageConverters">    
             <util:list id="beanList">    
-                <ref bean="mappingJacksonHttpMessageConverter" />    
+                <ref bean="mappingJacksonHttpMessageConverter" />
             </util:list>    
         </property>    
     </bean>
