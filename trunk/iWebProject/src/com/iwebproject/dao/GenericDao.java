@@ -16,6 +16,14 @@ public interface GenericDao<T,PK extends Serializable> {
      * @return
      */
     T read(PK id);
+    
+    /**
+     * Retrieve an object that was previously persisted to the database using
+     * Object Model
+     * @param id
+     * @return
+     */
+    T read(T model);
 
     /**
      * Save changes made to a persistent object

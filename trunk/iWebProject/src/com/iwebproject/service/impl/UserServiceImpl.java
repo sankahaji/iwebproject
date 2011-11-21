@@ -16,4 +16,9 @@ public class UserServiceImpl extends BaseService implements UserService {
 		this.userDao.create(user);
 	}
 
+    @Override
+    public User read(User user) {
+        return this.userDao.read(user);
+    }
+
 }

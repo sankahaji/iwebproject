@@ -3,8 +3,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Insert title here</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>首页</title>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -13,6 +13,13 @@
 </script>
 </head>
 <body>
-	<div id="tips"></div>
+    <div id="tips"></div>
+    <form action="<%=request.getContextPath()%>/user/login" method="POST">
+		    用户名：<input type="text" name="userName"/><br/>
+		    密码：<input type="password" name="password"/><br/>
+	    <input type="submit"/>&nbsp;&nbsp;&nbsp;&nbsp;
+	    <input type="reset"/>
+    </form>
+    <a href="register.jsp">注册</a>
 </body>
 </html>
