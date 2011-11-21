@@ -43,7 +43,7 @@ public class ProductController {
         try {
             File photoFile = new File(photoPath);
             if (!photoFile.exists()) {
-                photoFile.mkdir();
+                photoFile.mkdirs();
             }
             picture.transferTo(new File(photoPath + photoName));
         } catch (IllegalStateException e) {

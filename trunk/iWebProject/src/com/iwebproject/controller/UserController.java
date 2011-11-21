@@ -45,7 +45,18 @@ public class UserController {
         
         return mav;
 	}
-	
+    
+    @RequestMapping(value="/{userId}/logout",method=RequestMethod.GET)
+	public String logout(@PathVariable("userId")String userId,HttpServletRequest request){
+        logger.info("logout() method begin...");
+
+        request.getSession().invalidate();
+
+        logger.info("logout() method end...");
+        
+        return "redirect:/";
+	}
+    
 	@RequestMapping(value="/register",method=RequestMethod.POST)
 	public ModelAndView register(User user,HttpServletRequest request) {
 		logger.info("register() method begin...");
