@@ -27,6 +27,10 @@
 		class="org.springframework.context.support.ResourceBundleMessageSource"
 		p:basename="i18n/messages" />
 
+    <bean id="multipartResolver"    
+        class="org.springframework.web.multipart.commons.CommonsMultipartResolver"    
+        p:defaultEncoding="utf-8" />   
+        
 	<mvc:default-servlet-handler />
 
 </beans>  
