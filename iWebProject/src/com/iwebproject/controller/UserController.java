@@ -22,18 +22,23 @@ public class UserController {
 	private UserService userService;
 
     @RequestMapping(value="/login",method=RequestMethod.POST)
-	public String login(User loginUser){
+	public ModelAndView login(User loginUser,ModelMap modelMap ){
         logger.info("login() method begin...");
 
         User user = this.userService.read(loginUser);
 
         logger.info("login() method end...");
+
+        ModelAndView mav;
         
         if(null != user){
-            return "redirect:/user/index";
+            mav = new ModelAndView("redirect:/user/index");  
         }else{
-            return "redirect:/";
+            modelMap.put("errorTips", "用户名或密码错误！");
+            mav = new ModelAndView("/index", modelMap);
         }
+        
+        return mav;
 	}
 	
 	@RequestMapping(value="/register",method=RequestMethod.POST)
