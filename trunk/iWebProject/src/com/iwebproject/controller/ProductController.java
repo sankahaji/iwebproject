@@ -40,12 +40,11 @@ public class ProductController {
                 .getRealPath(Constants.PHOTO_DIRECTORY)
                 + File.separator + userId + File.separator;
 
-        File photoFile = new File(photoPath);
-        if (!photoFile.exists()) {
-            photoFile.mkdir();
-        }
-
         try {
+            File photoFile = new File(photoPath);
+            if (!photoFile.exists()) {
+                photoFile.mkdir();
+            }
             picture.transferTo(new File(photoPath + photoName));
         } catch (IllegalStateException e) {
             e.printStackTrace();
