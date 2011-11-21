@@ -1,6 +1,7 @@
 package com.iwebproject.controller;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.iwebproject.bean.User;
+import com.iwebproject.common.Constants;
 import com.iwebproject.service.UserService;
 
 @Controller
@@ -22,7 +24,7 @@ public class UserController {
 	private UserService userService;
 
     @RequestMapping(value="/login",method=RequestMethod.POST)
-	public ModelAndView login(User loginUser,ModelMap modelMap ){
+	public ModelAndView login(User loginUser,ModelMap modelMap,HttpServletRequest request){
         logger.info("login() method begin...");
 
         User user = this.userService.read(loginUser);
@@ -32,7 +34,9 @@ public class UserController {
         ModelAndView mav;
         
         if(null != user){
-            mav = new ModelAndView("redirect:/user/index");  
+            request.getSession().setAttribute(Constants.USER_ID_SESSION, user.getId());
+            
+            mav = new ModelAndView("redirect:/user/home");  
         }else{
             modelMap.put("errorTips", "用户名或密码错误！");
             mav = new ModelAndView("/index", modelMap);
@@ -56,15 +60,15 @@ public class UserController {
 		return mav;
 	}
 
-    @RequestMapping(value="/index")
-	public ModelAndView index(){
-        logger.info("index() method end...");
+    @RequestMapping(value="/home")
+	public ModelAndView home(){
+        logger.info("home() method begin...");
         
         ModelAndView mav = new ModelAndView();
         mav.setViewName("helloWorld");
         mav.addObject("message", "Hello World!");
         
-        logger.info("index() method end...");
+        logger.info("home() method end...");
         
         return mav;
 	}
