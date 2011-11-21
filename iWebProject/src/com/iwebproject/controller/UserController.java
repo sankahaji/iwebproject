@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -36,7 +37,7 @@ public class UserController {
         if(null != user){
             request.getSession().setAttribute(Constants.USER_ID_SESSION, user.getId());
             
-            mav = new ModelAndView("redirect:/user/home");  
+            mav = new ModelAndView("redirect:/user/"+user.getId()+"/home");  
         }else{
             modelMap.put("errorTips", "用户名或密码错误！");
             mav = new ModelAndView("/index", modelMap);
@@ -46,27 +47,28 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/register",method=RequestMethod.POST)
-	public ModelAndView register(User user) {
+	public ModelAndView register(User user,HttpServletRequest request) {
 		logger.info("register() method begin...");
 		
 		this.userService.create(user);
-		
+
+        request.getSession().setAttribute(Constants.USER_ID_SESSION, user.getId());
+        
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("helloWorld");
-		mav.addObject("message", "Hello World!");
+		mav.setViewName("redirect:/user/"+user.getId()+"/home");
 		
 		logger.info("register() method end...");
 		
 		return mav;
 	}
 
-    @RequestMapping(value="/home")
-	public ModelAndView home(){
+    @RequestMapping(value="/{userId}/home")
+	public ModelAndView home(@PathVariable("userId")String userId){
         logger.info("home() method begin...");
         
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("helloWorld");
-        mav.addObject("message", "Hello World!");
+        mav.setViewName("/home");
+        mav.addObject("userId", userId);
         
         logger.info("home() method end...");
         

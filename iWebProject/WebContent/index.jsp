@@ -21,6 +21,6 @@
 	    <input type="submit"/>&nbsp;&nbsp;&nbsp;&nbsp;
 	    <input type="reset"/>
     </form>
-    <a href="register.jsp">注册</a>
+    <a href="${pageContext.request.contextPath}/register.jsp">注册</a>
 </body>
 </html>
