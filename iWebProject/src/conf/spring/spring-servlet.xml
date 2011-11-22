@@ -29,7 +29,7 @@
     <bean id="authenticationInterceptor" class="com.iwebproject.interceptor.AuthenticationInterceptor">
     	<property name="doNotNeedSessionURLs">
     		<list>
-                <value>/user/login</value>
+                <value>/user/login.json</value>
                 <value>/user/register</value>
     		</list>
     	</property>
