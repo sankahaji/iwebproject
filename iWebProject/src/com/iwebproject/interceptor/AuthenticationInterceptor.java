@@ -27,7 +27,7 @@ public class AuthenticationInterceptor extends HandlerInterceptorAdapter {
         String url = request.getRequestURI();
         
         for(String doNotNeedSessionURL : doNotNeedSessionURLs){
-            if(url.endsWith(doNotNeedSessionURL)){
+            if(url.matches(doNotNeedSessionURL)){
                 return true;
             }
         }
@@ -35,6 +35,9 @@ public class AuthenticationInterceptor extends HandlerInterceptorAdapter {
         response.sendRedirect(request.getContextPath()); 
         
         return false;
+        
+        
+        
     }
 
     public void setDoNotNeedSessionURLs(List<String> doNotNeedSessionURLs) {
