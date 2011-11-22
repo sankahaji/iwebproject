@@ -10,5 +10,6 @@
 Hello,${userId }!
 <a href="${pageContext.request.contextPath}/user/${userId }/logout">注销</a><br/>
 <a href="${pageContext.request.contextPath}/uploadProductPicture.jsp?userId=4">上传产品图片</a>
+<a href="${pageContext.request.contextPath}/publishProduct.jsp">发布产品</a>
 </body>
 </html>

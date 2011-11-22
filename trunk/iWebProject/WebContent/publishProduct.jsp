@@ -4,9 +4,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="${pageContext.request.contextPath}/ckeditor/ckeditor.js" type="text/javascript"></script>
 <title>发布产品</title>
 </head>
 <body>
 发布产品
+<label for="productDesc">产品描述：</label><textarea  cols="80" id="productDescription" name="productDescription" rows="10"></textarea>
+<script type="text/javascript">
+    CKEDITOR.replace( 'productDescription' ,{
+        filebrowserImageUploadUrl : 'acvitity/uploadActivityPhoto.action?flag=comment',width:572
+    });
+</script>
 </body>
 </html>
