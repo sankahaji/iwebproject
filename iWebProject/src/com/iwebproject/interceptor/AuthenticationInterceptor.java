@@ -36,8 +36,6 @@ public class AuthenticationInterceptor extends HandlerInterceptorAdapter {
         
         return false;
         
-        
-        
     }
 
     public void setDoNotNeedSessionURLs(List<String> doNotNeedSessionURLs) {
