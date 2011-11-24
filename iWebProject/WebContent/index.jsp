@@ -8,7 +8,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
-		$("#tips").html("使用了jquery1.7,后台支持ajax(json)登录，前台需改正，待同步，暂时无法登陆");
+		$("#tips").html("使用了jquery1.7");
 	});
 </script>
 </head>
