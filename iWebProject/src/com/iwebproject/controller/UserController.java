@@ -16,7 +16,6 @@ import com.iwebproject.common.Constants;
 import com.iwebproject.service.UserService;
 
 @Controller
-@RequestMapping("/user")
 public class UserController {
 	
 	private Logger logger = Logger.getLogger(UserController.class);
@@ -40,7 +39,7 @@ public class UserController {
             mav = new ModelAndView("redirect:/user/"+user.getId()+"/home");  
         }else{
             modelMap.put("errorTips", "用户名或密码错误！");
-            mav = new ModelAndView("/index", modelMap);
+            mav = new ModelAndView("/home", modelMap);
         }
         
         return mav;
