@@ -7,83 +7,95 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "t_product")
 public class Product implements Serializable {
 
-	private static final long serialVersionUID = 5069817797496393309L;
+    private static final long serialVersionUID = 5069817797496393309L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
-	private String productName;
+    private String productName;
 
-	private String originalPrice;
+    private String originalPrice;
 
-	private String discountPrice;
+    private String discountPrice;
 
-	private String previewImage;
+    private String previewImage;
 
-	private String description;
+    private String description;
 
-	@ManyToOne
-	private User user;
-	
-	public Long getId() {
-		return id;
-	}
+    private String type;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    @ManyToOne
+    private User user;
 
-	public String getProductName() {
-		return productName;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setProductName(String productName) {
-		this.productName = productName;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public String getOriginalPrice() {
-		return originalPrice;
-	}
+    public String getProductName() {
+        return productName;
+    }
 
-	public void setOriginalPrice(String originalPrice) {
-		this.originalPrice = originalPrice;
-	}
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
 
-	public String getDiscountPrice() {
-		return discountPrice;
-	}
+    public String getOriginalPrice() {
+        return originalPrice;
+    }
 
-	public void setDiscountPrice(String discountPrice) {
-		this.discountPrice = discountPrice;
-	}
+    public void setOriginalPrice(String originalPrice) {
+        this.originalPrice = originalPrice;
+    }
 
-	public String getPreviewImage() {
-		return previewImage;
-	}
+    public String getDiscountPrice() {
+        return discountPrice;
+    }
 
-	public void setPreviewImage(String previewImage) {
-		this.previewImage = previewImage;
-	}
+    public void setDiscountPrice(String discountPrice) {
+        this.discountPrice = discountPrice;
+    }
 
-	public String getDescription() {
-		return description;
-	}
+    public String getPreviewImage() {
+        return previewImage;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public void setPreviewImage(String previewImage) {
+        this.previewImage = previewImage;
+    }
 
-	public User getUser() {
-		return user;
-	}
+    public String getDescription() {
+        return description;
+    }
 
-	public void setUser(User user) {
-		this.user = user;
-	}
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
 }
