@@ -15,7 +15,7 @@
 <body>
     <div id="tips"></div>
     <div id="errorTips">${errorTips}</div>
-    <form action="${pageContext.request.contextPath}/user/login" method="POST">
+    <form action="${pageContext.request.contextPath}/login" method="POST">
 		    用户名：<input type="text" name="userName"/><br/>
 		    密码：<input type="password" name="password"/><br/>
 	    <input type="submit"/>&nbsp;&nbsp;&nbsp;&nbsp;
