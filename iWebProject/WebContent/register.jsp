@@ -7,7 +7,7 @@
 <title>注册</title>
 </head>
 <body>
-<form action="<%=request.getContextPath()%>/user/register" method="POST">
+<form action="<%=request.getContextPath()%>/register" method="POST">
     用户名：<input type="text" name="userName"/><br/>
     密码：<input type="password" name="password"/><br/>
     昵称：<input type="text" name="nickName"/><br/>
