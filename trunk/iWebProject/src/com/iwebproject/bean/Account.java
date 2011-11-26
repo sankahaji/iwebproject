@@ -12,11 +12,11 @@ import javax.persistence.Table;
 @Table(name = "t_account")
 public class Account implements Serializable {
 
-	private static final long serialVersionUID = 2845954131277731088L;
+	private static final long serialVersionUID = -2916190255838375445L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private String id;
+	private Long id;
 
 	private String userName;
 
@@ -26,11 +26,11 @@ public class Account implements Serializable {
 
 	private String email;
 
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
