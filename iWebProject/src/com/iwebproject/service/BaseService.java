@@ -2,9 +2,9 @@ package com.iwebproject.service;
 
 import javax.annotation.Resource;
 
-import com.iwebproject.dao.UserDao;
+import com.iwebproject.dao.AccountDao;
 
 public class BaseService {
 	@Resource
-	protected UserDao userDao;
+	protected AccountDao accountDao;
 }

@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.iwebproject.bean.User;
+import com.iwebproject.bean.Account;
 import com.iwebproject.common.Constants;
-import com.iwebproject.service.UserService;
+import com.iwebproject.service.AccountService;
 
 @Controller
 public class UserController {
@@ -21,13 +21,13 @@ public class UserController {
 	private Logger logger = Logger.getLogger(UserController.class);
 	
 	@Resource
-	private UserService userService;
+	private AccountService accountService;
 
     @RequestMapping(value="/login",method=RequestMethod.POST)
-    public ModelAndView login(User loginUser,ModelMap modelMap,HttpServletRequest request){
+    public ModelAndView login(Account loginUser,ModelMap modelMap,HttpServletRequest request){
         logger.info("login() method begin...");
 
-        User user = this.userService.read(loginUser);
+        Account user = this.accountService.read(loginUser);
 
         logger.info("login() method end...");
 
@@ -57,10 +57,10 @@ public class UserController {
 	}
     
 	@RequestMapping(value="/register",method=RequestMethod.POST)
-	public ModelAndView register(User user,HttpServletRequest request) {
+	public ModelAndView register(Account user,HttpServletRequest request) {
 		logger.info("register() method begin...");
 		
-		this.userService.create(user);
+		this.accountService.create(user);
 
         request.getSession().setAttribute(Constants.USER_ID_SESSION, user.getId());
         
