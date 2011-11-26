@@ -36,7 +36,7 @@ public class UserController {
         if(null != user){
             request.getSession().setAttribute(Constants.USER_ID_SESSION, user.getId());
             
-            mav = new ModelAndView("redirect:/user/"+user.getId()+"/home");  
+            mav = new ModelAndView("redirect:/"+user.getId()+"/home");  
         }else{
             modelMap.put("errorTips", "用户名或密码错误！");
             mav = new ModelAndView("/home", modelMap);
@@ -65,7 +65,7 @@ public class UserController {
         request.getSession().setAttribute(Constants.USER_ID_SESSION, user.getId());
         
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("redirect:/user/"+user.getId()+"/home");
+		mav.setViewName("redirect:/"+user.getId()+"/home");
 		
 		logger.info("register() method end...");
 		
